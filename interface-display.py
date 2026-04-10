@@ -5,9 +5,8 @@ def menu():
     print("2. 8 joueurs")
     print("3. 16 joueurs")
 
-    choix = input("Choix : ")  # récupération du choix
+    choix = input("Choix : ")
 
-    # on retourne le nombre de joueurs correspondant
     if choix == "1":
         return 4
     elif choix == "2":
@@ -15,10 +14,24 @@ def menu():
     elif choix == "3":
         return 16
     else:
-        return 4  # valeur par défaut si erreur
+        return 4
 
 
-# appel du menu
+# Saisie des joueurs
+def saisir_joueurs(nb):
+    joueurs = []
+
+    # boucle pour demander les noms
+    for i in range(nb):
+        nom = input(f"Nom du joueur {i+1} : ")
+        joueurs.append(nom)  # ajout dans la liste
+
+    return joueurs
+
+
+# programme principal
 nb_joueurs = menu()
+joueurs = saisir_joueurs(nb_joueurs)
 
-print("Nombre de joueurs :", nb_joueurs)
+# affichage pour vérifier
+print("Liste des joueurs :", joueurs)
