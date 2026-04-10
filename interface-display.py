@@ -7,6 +7,7 @@ def menu():
 
     choix = input("Choix : ")
 
+    # retourne le nombre de joueurs
     if choix == "1":
         return 4
     elif choix == "2":
@@ -21,17 +22,26 @@ def menu():
 def saisir_joueurs(nb):
     joueurs = []
 
-    # boucle pour demander les noms
+    # boucle pour entrer les noms
     for i in range(nb):
         nom = input(f"Nom du joueur {i+1} : ")
-        joueurs.append(nom)  # ajout dans la liste
+        joueurs.append(nom)
 
     return joueurs
 
 
-# programme principal
+# Affichage d’un tour
+def afficher_tour(joueurs, nom_tour):
+    print(f"\n=== {nom_tour} ===")
+
+    # affiche les matchs 2 par 2
+    for i in range(0, len(joueurs), 2):
+        print(joueurs[i], "vs", joueurs[i+1])
+
+
+# Programme principal
 nb_joueurs = menu()
 joueurs = saisir_joueurs(nb_joueurs)
 
-# affichage pour vérifier
-print("Liste des joueurs :", joueurs)
+# affichage du premier tour
+afficher_tour(joueurs, "Premier tour")
