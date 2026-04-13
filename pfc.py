@@ -1,12 +1,12 @@
-import random
-def demander_choix(nom_du_joueur):
+import random 
+def demander_choix(nom_du_joueur): 
     choix = ""
     while choix != "P" and choix != "F" and choix != "C":
         choix = input(f"{nom_du_joueur}, entrez P, F ou C : ").upper().strip()
         if choix != "P" and choix != "F" and choix != "C":
             print("Erreur ! Tu dois écrire P, F ou C.")
     return choix
-def qui_gagne(c1, c2):
+def qui_gagne(c1, c2): # les regles du jeu pour eviter les if/else"
     if c1 == c2:
         return "égalité"
     if (c1 == "P" and c2 == "C") or \
@@ -16,7 +16,7 @@ def qui_gagne(c1, c2):
     else:
         return "joueur2"
 
-def faire_un_match(joueur_a, joueur_b):
+def faire_un_match(joueur_a, joueur_b): # les matchs#
     points_a = 0
     points_b = 0
     
@@ -72,7 +72,7 @@ def lancer_le_tournoi():
         
     liste_joueurs.append({"nom": "Terminator-IA", "type": "IA"})
     
-    random.shuffle(liste_joueurs)
+    random.shuffle(liste_joueurs) # pour choisir au hasard les joueurs#
     
     while len(liste_joueurs) > 1:
         print(f"\n IL RESTE {len(liste_joueurs)} JOUEURS EN LICE")
